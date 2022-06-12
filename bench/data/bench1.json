@@ -1,0 +1,32 @@
+{
+  "string" : "Lorem ipsum dolor sit amet.",
+  "uint32" : 9000,
+  "inner" : {
+      "int32" : 20161110,
+      "innerInner" : {
+          "long" : {
+              "low": 1051,
+              "high": 151234,
+              "unsigned": false
+          },
+          "enum" : 1,
+          "sint32": -42
+      },
+      "outer" : {
+          "bool" : [ true, false, false, true, false, false, true ],
+          "double": 204.8899,
+          "email": "abcdefghijk,123455",
+          "twitter": "abcdefghijk,123455",
+          "street": "abcdefghijk,123455",
+          "city": "abcdefghijk,123455",
+          "state": "abcdefghijk,123455",
+          "zip": "abcdefghijk,123455",
+          "phone":  "abcdefghijk,123455",
+          "name": "abcdefghijk,123455"
+      }
+  },
+  "float": 0.25,
+  "double": 204.234895985948954,
+  "age":1.234895985948954895,
+  "num":1.2348959859489548958498594589485942
+}

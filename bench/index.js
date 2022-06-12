@@ -10,17 +10,17 @@
 // in between.
 
 var newSuite  = require("./suite"),
-    payload   = require("./data/bench.json");
+    payload   = require("./data/bench1.json");
 
 var Buffer_from = Buffer.from !== Uint8Array.from && Buffer.from || function(value, encoding) { return new Buffer(value, encoding); };
 
 // protobuf.js dynamic: load the proto and set up a buffer
-var pbjsCls = require("..").loadSync(require.resolve("./data/bench.proto")).resolveAll().lookup("Test");
+var pbjsCls = require("..").loadSync(require.resolve("./data/bench1.proto")).resolveAll().lookup("Test");
 var pbjsMsg = payload; // alt: pbjsCls.fromObject(payload);
 var pbjsBuf = pbjsCls.encode(pbjsMsg).finish();
 
 // protobuf.js static: load the proto
-var pbjsStaticCls = require("./data/static_pbjs.js").Test;
+var pbjsStaticCls = require("./data/static_pbjs1.js").Test;
 
 // JSON: set up a string and a buffer
 var jsonMsg = payload;
@@ -28,7 +28,7 @@ var jsonStr = JSON.stringify(jsonMsg);
 var jsonBuf = Buffer_from(jsonStr, "utf8");
 
 // google-protobuf: load the proto, set up an Uint8Array and a message
-var jspbCls = require("./data/static_jspb.js").Test;
+var jspbCls = require("./data/static_jspb1.js").Test;
 var jspbBuf = new Uint8Array(Array.prototype.slice.call(pbjsBuf));
 var jspbMsg = jspbCls.deserializeBinary(jspbBuf);
 

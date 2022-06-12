@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+message Test {
+
+    string  string = 1;
+    uint32  uint32 = 2;
+    Inner   inner  = 3;
+    float   float  = 4; // make sure to set something that's fair to JSON
+    double double = 5;
+    double age = 6;
+    double num = 7;
+    double phone = 8;
+    double tax = 9;
+    double grade = 10;
+    double text = 11;
+    double count = 12;
+
+    message Inner {
+
+        int32      int32      = 1;
+        InnerInner innerInner = 2;
+        Outer      outer      = 3;
+
+        message InnerInner {
+
+            int64  long   = 1;
+            Enum   enum   = 2;
+            sint32 sint32 = 3;
+        }
+    }
+
+    enum Enum {
+
+        ONE   = 0;
+        TWO   = 1;
+        THREE = 2;
+        FOUR  = 3;
+        FIVE  = 4;
+    }
+}
+
+message Outer {
+
+    repeated bool bool = 1;
+    double double = 2; // make sure to set something that's fair to JSON
+
+    string email = 3;
+    string twitter = 4;
+    string street = 5;
+    string city = 6;
+    string state = 7;
+    string zip = 8;
+    string phone = 9;
+    string name = 10;
+}
+
+// bytes cannot be used
